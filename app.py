@@ -279,7 +279,7 @@ with seg_col1:
         legend=dict(orientation="h", yanchor="bottom", y=-0.2, xanchor="center", x=0.5)
     )
     fig_pie.update_traces(textposition='inside', textinfo='percent+label')
-    st.plotly_chart(fig)
+    st.plotly_chart(fig_pie)
 
 with seg_col2:
     seg_revenue = filtered.groupby('Segment')['Revenue_at_Risk'].sum().sort_values(ascending=True)
@@ -296,7 +296,7 @@ with seg_col2:
         height=350
     )
     fig_bar.update_traces(marker_line_width=0)
-    st.plotly_chart(fig)
+    st.plotly_chart(fig_bar)
 
 # ============================================================
 # TOP AT-RISK CUSTOMERS
