@@ -258,8 +258,7 @@ fig.update_layout(
     yaxis_title="Churn Probability",
 )
 
-st.plotly_chart(fig, use_container_width=True)
-
+st.plotly_chart(fig)
 # ============================================================
 # SEGMENT BREAKDOWN
 # ============================================================
@@ -280,7 +279,7 @@ with seg_col1:
         legend=dict(orientation="h", yanchor="bottom", y=-0.2, xanchor="center", x=0.5)
     )
     fig_pie.update_traces(textposition='inside', textinfo='percent+label')
-    st.plotly_chart(fig_pie, use_container_width=True)
+    st.plotly_chart(fig)
 
 with seg_col2:
     seg_revenue = filtered.groupby('Segment')['Revenue_at_Risk'].sum().sort_values(ascending=True)
@@ -297,7 +296,7 @@ with seg_col2:
         height=350
     )
     fig_bar.update_traces(marker_line_width=0)
-    st.plotly_chart(fig_bar, use_container_width=True)
+    st.plotly_chart(fig)
 
 # ============================================================
 # TOP AT-RISK CUSTOMERS
@@ -319,9 +318,9 @@ st.dataframe(
         'CLV (£)': '£{:,.2f}',
         'Revenue at Risk (£)': '£{:,.2f}'
     }).background_gradient(subset=['Revenue at Risk (£)'], cmap='OrRd'),
-    use_container_width=True,
     height=450
 )
+
 
 # ============================================================
 # FOOTER
